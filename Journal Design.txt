@@ -1,0 +1,63 @@
+Program Specifications:
+
+1. What does the program do?
+It offers a prompt to the user they can respond to and then it stores their response.
+
+2. What user inputs does it have?
+-Menu input.
+-Entry.
+-File name.
+-Option to save and load.
+-Date.
+
+3. What output does it produce?
+-The journal entries.
+-Text file.
+-Menu.
+-Prompt.
+-Date.
+
+4. How does the program end?
+-With an input that prompts the program to close.
+-Stretch: "Do you want to add more? (y/n)"
+
+Determine the Classes:
+
+1. What are good candidates for classes in this program?
+
+-Entry
+-Journal
+-PromptGenerator
+
+2. What are the primary responsibilities of each class?
+-Entry:
+  - Display a prompt.
+  - Receive and store the date and user's entries.
+-Journal:
+  - Allows to call all entries to be displayed.
+-PromptGenerator:
+  - Stores a list of promts and chooses a random one.
+
+Define class behaviors:
+
+-Entry:
+  - Store data.
+-Journal:
+  - Add data to a list.
+  - Display.
+  - Save: Creates and/or edits a .txt document that stores the entries.
+  - Load: Reads the data contained in a .txt document a uses it to replace current data.
+-PromptGenerator:
+  - Iterates through a list.
+  - Picks a random question.
+
+Define class attributes:
+
+-Entry:
+  - Date. (string)
+  - Prompt. (string)
+  - User input. (string)
+-Journal:
+  - Entries. (List)
+-PromptGenerator:
+  - Prompts. (List) 
