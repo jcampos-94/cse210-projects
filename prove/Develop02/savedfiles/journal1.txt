@@ -1,6 +1,0 @@
-
-(01/01/2023) What did you do today?
-
-This is the saved journal.
-If you see this, it means it loaded successfully.
-

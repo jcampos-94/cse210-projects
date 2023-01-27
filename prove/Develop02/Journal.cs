@@ -30,7 +30,7 @@ public class Journal
     {
         Clear();
         accessEntry.FontColor("White");
-        WriteLine("Welcome to the Journal Application.");
+        WriteLine("Welcome to JournalApp.");
         accessEntry.PressAnyKey();
     }
 
@@ -73,10 +73,14 @@ public class Journal
                     accessEntry.ClearAllEntries();
                     break;
                 
+                case "6":
+                    accessEntry.DeleteJournal();
+                    break;
+                
                 default:
                     break;
             }
-        } while (choice != "6");
+        } while (choice != "7");
         
     }
     
@@ -95,14 +99,15 @@ public class Journal
             WriteLine("2. Display Journal contents");
             WriteLine("3. Save Journal");
             WriteLine("4. Load Journal");
-            WriteLine("5. Delete all Journal entries");
-            WriteLine("6. Quit");
+            WriteLine("5. Delete all local entries");
+            WriteLine("6. Delete a saved Journal");
+            WriteLine("7. Quit");
 
             accessEntry.FontColor("DarkYellow");
             choice = ReadLine().Trim();
             accessEntry.FontColor("White");
 
-            if (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6")
+            if (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6" || choice == "7")
             {
                 isChoiceValid = true;
             }

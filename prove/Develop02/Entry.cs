@@ -3,6 +3,8 @@ using System.IO;
 
 public class Entry
 {
+    PromptGenerator accessGenerator = new PromptGenerator();
+
     private string _internalMemory = "internalmemory/MemoryFile.txt";
     private string _savedFiles = "savedfiles/";
 
@@ -41,7 +43,8 @@ public class Entry
     {
         Clear();
         FontColor("White");
-        WriteLine("What do you want to add?");
+        string question = accessGenerator.DisplayRandomQuestion();
+        WriteLine(question);
         FontColor("DarkGray");
         WriteLine("Type EXIT to stop.\n");
         FontColor("DarkYellow");
@@ -61,7 +64,7 @@ public class Entry
             }
         }
         
-        File.AppendAllText(_internalMemory, $"\n{GetDate()} What did you do today?\n\n{newEntry}\n");
+        File.AppendAllText(_internalMemory, $"\n>> {GetDate()} {question}\n\n{newEntry}");
         FontColor("White");
         WriteLine("\nThe entry has been added successfully.");
         PressAnyKey();
@@ -78,12 +81,7 @@ public class Entry
             FontColor("White");
             WriteLine("This program saves all entries into its internal memory every time a new entry is added.");
             WriteLine("This option will copy the Journal contents into a different file.");
-            WriteLine("Do you wish to continue?");
-            WriteLine("1. Yes");
-            WriteLine("2. No");
-
-            FontColor("DarkYellow");
-            string choice = ReadLine().Trim();
+            string choice = Continue();
 
             if (choice == "1")
             {
@@ -93,12 +91,7 @@ public class Entry
                 WriteLine("What will be the name of the Journal?");
                 FontColor("DarkYellow");
                 string file = ReadLine().Trim();
-
-                string journalText = File.ReadAllText(_internalMemory);
-
-                File.WriteAllText(_savedFiles+file+".txt", journalText);
-                Clear();
-                FontColor("White");
+                RewriteFile(file, _internalMemory, _savedFiles+file+".txt");
                 WriteLine($"The Journal has been saved as '{file}.txt'");
                 PressAnyKey();
             }
@@ -127,12 +120,7 @@ public class Entry
             FontColor("White");
             WriteLine("This option will take a previously saved journal");
             WriteLine("and use its contents to replace the internal memory.");
-            WriteLine("Do you wish to continue?");
-            WriteLine("1. Yes");
-            WriteLine("2. No");
-
-            FontColor("DarkYellow");
-            string choice = ReadLine().Trim();
+            string choice = Continue();
 
             if (choice == "1")
             {
@@ -143,13 +131,16 @@ public class Entry
                 FontColor("DarkYellow");
                 string file = ReadLine().Trim();
 
-                string journalText = File.ReadAllText(_savedFiles+file+".txt");
-
-                File.WriteAllText(_internalMemory, journalText);
-                Clear();
-                FontColor("White");
-                WriteLine($"The Journal '{file}.txt' has been loaded.");
-                PressAnyKey();
+                if (File.Exists(_savedFiles+file+".txt"))
+                {
+                    RewriteFile(file, _savedFiles+file+".txt", _internalMemory);
+                    WriteLine($"The Journal '{file}.txt' has been loaded.");
+                    PressAnyKey();
+                }
+                else
+                {
+                    NotAValidChoice(file);
+                }
             }
 
             else if (choice == "2")
@@ -164,6 +155,38 @@ public class Entry
         } while(!isChoiceValid);
     }
     
+    //Deletes a Saved Journal:
+    public void DeleteJournal()
+    {
+        Clear();
+        FontColor("White");
+        WriteLine("Which Journal do you wish to delete?");
+        FontColor("DarkYellow");
+        string file = ReadLine().Trim();
+
+        if (File.Exists(_savedFiles+file+".txt"))
+        {
+            File.Delete(_savedFiles+file+".txt");
+            Clear();
+            FontColor("White");
+            WriteLine($"The Journal '{file}.txt' has been deleted.");
+            PressAnyKey();
+        }
+        else
+        {
+            NotAValidChoice(file);
+        }
+    }
+
+    //Rewrites a specific file:
+    private void RewriteFile(string fileName, string path1, string path2)
+    {
+        string journalText = File.ReadAllText(path1);
+        File.WriteAllText(path2, journalText);
+        Clear();
+        FontColor("White");
+    }
+    
     //Waits for the user to press a key:
     public void PressAnyKey()
     {
@@ -176,8 +199,18 @@ public class Entry
     public void NotAValidChoice(string choice)
     {
         FontColor("DarkRed");
-        WriteLine($"'{choice}' is not a valid choice. Please choose 1-6.");
+        WriteLine($"'{choice}' is not a valid choice.");
         PressAnyKey();
+    }
+
+    public string Continue()
+    {
+        WriteLine("Do you wish to continue?");
+        WriteLine("1. Yes");
+        WriteLine("2. No");
+        FontColor("DarkYellow");
+        string choice = ReadLine().Trim();
+        return choice;
     }
 
     //Allows easy access to the colors used in the Journal:
