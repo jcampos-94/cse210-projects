@@ -29,7 +29,7 @@ public class Journal
     private void DisplayIntro()
     {
         Clear();
-        accessEntry.FontColor("White");
+        accessEntry.FontColor("Reset");
         WriteLine("Welcome to JournalApp.");
         accessEntry.PressAnyKey();
     }
@@ -38,7 +38,7 @@ public class Journal
     private void DisplayOutro()
     {
         Clear();
-        accessEntry.FontColor("White");
+        accessEntry.FontColor("Reset");
         WriteLine("Thanks for using JournalApp.");
         WriteLine("Goodbye.");
         accessEntry.PressAnyKey();
@@ -93,7 +93,7 @@ public class Journal
         do
         {
             Clear();
-            accessEntry.FontColor("White");
+            accessEntry.FontColor("Reset");
             WriteLine("What would you like to do?\n");
             WriteLine("1. Write a new Entry");
             WriteLine("2. Display Journal contents");
@@ -105,7 +105,7 @@ public class Journal
 
             accessEntry.FontColor("DarkYellow");
             choice = ReadLine().Trim();
-            accessEntry.FontColor("White");
+            accessEntry.FontColor("Reset");
 
             if (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6" || choice == "7")
             {
