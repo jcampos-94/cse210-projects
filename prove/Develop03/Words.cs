@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
 public class Words
 {
-    Scripture myScripture = new Scripture();
-    Instructions inst = new Instructions();
+    private Scripture myScripture = new Scripture();
+    private Instructions inst = new Instructions();
     
     public void HideWords(string reference, string[] _scriptureTextArray)
         {
