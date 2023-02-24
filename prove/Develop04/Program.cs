@@ -11,6 +11,7 @@ class Program
         Animation animation = new Animation();
         int choice;
         int seconds;
+        
         do
         {
             string input = menu.DisplayMenu();
