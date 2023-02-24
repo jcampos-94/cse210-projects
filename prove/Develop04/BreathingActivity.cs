@@ -3,7 +3,6 @@ public class BreathingActivity : Activity
     private Animation animation = new Animation();
     private string _breathIn = "Breath in...";
     private string _breathOut = "Breath out...";
-
     public void DisplayBreathing(int seconds)
     {
         Console.Clear();

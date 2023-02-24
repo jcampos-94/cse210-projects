@@ -17,7 +17,6 @@ public class Activity
         int seconds = int.Parse(input);
         return seconds;
     }
-
     public void DisplayEndMessage(int seconds, int index)
     {
         Console.Clear();
@@ -26,7 +25,6 @@ public class Activity
         Console.WriteLine("Press 'Enter' to continue.");
         Console.ReadKey();
     }
-
     public string GetPrompt(string[] list)
     {
         Random rnd = new Random();

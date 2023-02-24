@@ -7,7 +7,6 @@ public class ListingActivity : Activity
         "Who are people that you have helped this week?",
         "When have you felt the Holy Ghost this month?",
         "Who are some of your personal heroes?"};
-
     public void DisplayListingPrompt()
     {
         Console.Clear();
@@ -19,7 +18,6 @@ public class ListingActivity : Activity
         Console.Write("You may begin in: " + "9");
         animation.LongCountdown();
     }
-
     public void Write(int seconds)
     {
         Console.Clear();
