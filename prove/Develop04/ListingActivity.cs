@@ -16,7 +16,7 @@ public class ListingActivity : Activity
         Console.WriteLine($" --- {prompt} --- \n");
 
         Console.Write("You may begin in: " + "9");
-        animation.LongCountdown();
+        animation.Countdown(9);
     }
     public void Write(int seconds)
     {

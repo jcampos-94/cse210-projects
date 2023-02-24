@@ -32,7 +32,7 @@ public class ReflectingActivity : Activity
 
         Console.WriteLine("\nNow ponder each of the following questions in relation to this experience.");
         Console.Write("You may begin in: " + "3");
-        animation.Countdown();
+        animation.Countdown(3);
     }
     public void DisplayQuestions(int seconds)
     {

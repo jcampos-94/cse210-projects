@@ -13,10 +13,10 @@ public class BreathingActivity : Activity
         while (currentTime < _endTime)
         {
             Console.Write(_breathIn + "3");
-            animation.Countdown();
+            animation.Countdown(3);
 
             Console.Write(_breathOut + "3");
-            animation.Countdown();
+            animation.Countdown(3);
 
             Console.WriteLine();
             currentTime = DateTime.Now;
