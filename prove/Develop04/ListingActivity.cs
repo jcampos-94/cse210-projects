@@ -22,17 +22,14 @@ public class ListingActivity : Activity
     {
         Console.Clear();
         int count = 0;
-        _startingTime = DateTime.Now;
-        _endTime = _startingTime.AddSeconds(seconds);
-        DateTime currentTime = DateTime.Now;
+        GetEndTime(seconds);
 
-        while (currentTime < _endTime)
+        while (DateTime.Now < _endTime)
         {
             Console.Write("> ");
             Console.ReadLine();
             
             count += 1;
-            currentTime = DateTime.Now;
         }
 
         Console.WriteLine($"\nYou listed {count} items!");

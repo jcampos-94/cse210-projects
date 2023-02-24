@@ -6,11 +6,9 @@ public class BreathingActivity : Activity
     public void DisplayBreathing(int seconds)
     {
         Console.Clear();
-        _startingTime = DateTime.Now;
-        _endTime = _startingTime.AddSeconds(seconds);
-        DateTime currentTime = DateTime.Now;
+        GetEndTime(seconds);
 
-        while (currentTime < _endTime)
+        while (DateTime.Now < _endTime)
         {
             Console.Write(_breathIn + "3");
             animation.Countdown(3);
@@ -19,7 +17,6 @@ public class BreathingActivity : Activity
             animation.Countdown(3);
 
             Console.WriteLine();
-            currentTime = DateTime.Now;
         }
     }
 }

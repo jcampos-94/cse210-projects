@@ -31,4 +31,10 @@ public class Activity
         int value = rnd.Next(0, list.Length);
         return list[value];
     }
+    public DateTime GetEndTime(int seconds)
+    {
+        _startingTime = DateTime.Now;
+        _endTime = _startingTime.AddSeconds(seconds);
+        return _endTime;
+    }
 }

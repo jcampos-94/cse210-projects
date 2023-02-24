@@ -37,13 +37,14 @@ public class Animation
     {
         int value = number;
 
-        while (value >= 0)
+        while (value > 0)
         {
         Thread.Sleep(1000);
         Console.Write("\b \b");
         Console.Write($"{value - 1}");
         value -= 1;
         }
+        Console.Write("\b \b");
 
         Console.WriteLine();
     }

@@ -37,18 +37,15 @@ public class ReflectingActivity : Activity
     public void DisplayQuestions(int seconds)
     {
         Console.Clear();
-        _startingTime = DateTime.Now;
-        _endTime = _startingTime.AddSeconds(seconds);
-        DateTime currentTime = DateTime.Now;
+        GetEndTime(seconds);
 
-        while (currentTime < _endTime)
+        while (DateTime.Now < _endTime)
         {
             string question = GetPrompt(_questionList);
 
             Console.WriteLine($"> {question}");
             animation.DashAnimation(10);
             Console.Write("\b \b");
-            currentTime = DateTime.Now;
         }
     }
 }

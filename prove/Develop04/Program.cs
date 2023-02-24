@@ -4,9 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        BreathingActivity activity0 = new BreathingActivity();
-        ReflectingActivity activity1 = new ReflectingActivity();
-        ListingActivity activity2 = new ListingActivity();
         Menu menu = new Menu();
         Animation animation = new Animation();
         int choice;
@@ -19,6 +16,7 @@ class Program
             switch (choice)
             {
                 case 1:
+                    BreathingActivity activity0 = new BreathingActivity();
                     seconds = activity0.DisplayStartingMessage(0);
                     animation.GetReady();
                     activity0.DisplayBreathing(seconds);
@@ -26,6 +24,7 @@ class Program
                     break;
                 
                 case 2:
+                    ReflectingActivity activity1 = new ReflectingActivity();
                     seconds = activity1.DisplayStartingMessage(1);
                     animation.GetReady();
                     activity1.DisplayReflectingPrompt();
@@ -34,6 +33,7 @@ class Program
                     break;
 
                 case 3:
+                    ListingActivity activity2 = new ListingActivity();
                     seconds = activity2.DisplayStartingMessage(2);
                     animation.GetReady();
                     activity2.DisplayListingPrompt();
