@@ -1,6 +1,5 @@
 public class ListingActivity : Activity
 {
-    private Animation animation = new Animation();
     private string[] _promptList =
         {"Who are people that you appreciate?",
         "What are personal strengths of yours?",
@@ -16,7 +15,7 @@ public class ListingActivity : Activity
         Console.WriteLine($" --- {prompt} --- \n");
 
         Console.Write("You may begin in: " + "9");
-        animation.Countdown(9);
+        Countdown(9);
     }
     public void Write(int seconds)
     {
@@ -33,6 +32,6 @@ public class ListingActivity : Activity
         }
 
         Console.WriteLine($"\nYou listed {count} items!");
-        animation.DashAnimation(4);
+        DashAnimation(4);
     }
 }

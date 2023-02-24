@@ -3,7 +3,6 @@ using System.Runtime;
 
 public class ReflectingActivity : Activity
 {
-    private Animation animation = new Animation();
     private string[] _promptList =
         {"Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -32,7 +31,7 @@ public class ReflectingActivity : Activity
 
         Console.WriteLine("\nNow ponder each of the following questions in relation to this experience.");
         Console.Write("You may begin in: " + "3");
-        animation.Countdown(3);
+        Countdown(3);
     }
     public void DisplayQuestions(int seconds)
     {
@@ -44,7 +43,7 @@ public class ReflectingActivity : Activity
             string question = GetPrompt(_questionList);
 
             Console.WriteLine($"> {question}");
-            animation.DashAnimation(10);
+            DashAnimation(10);
             Console.Write("\b \b");
         }
     }
