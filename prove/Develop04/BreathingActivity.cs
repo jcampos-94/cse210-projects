@@ -1,6 +1,6 @@
 public class BreathingActivity : Activity
 {
-    //private Menu _menu = new Menu();
+    private Animation animation = new Animation();
     private string _breathIn = "Breath in...";
     private string _breathOut = "Breath out...";
 
@@ -14,31 +14,12 @@ public class BreathingActivity : Activity
         while (currentTime < _endTime)
         {
             Console.Write(_breathIn + "3");
-            Thread.Sleep(1000);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("2");
+            animation.Countdown();
 
-            Thread.Sleep(1000);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("1");
-            
-            Thread.Sleep(1000);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("");
+            Console.Write(_breathOut + "3");
+            animation.Countdown();
 
             Console.WriteLine();
-
-            Console.Write(_breathOut + "2");
-            Thread.Sleep(1000);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("1");
-
-            Thread.Sleep(1000);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("\n");
-
-            Console.WriteLine();
-
             currentTime = DateTime.Now;
         }
     }

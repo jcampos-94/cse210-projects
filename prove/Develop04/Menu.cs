@@ -12,26 +12,4 @@ public class Menu
         string choice = Console.ReadLine();
         return choice;
     }
-
-    public void GetReady()
-    {
-        Console.Clear();
-        DateTime start = DateTime.Now;
-        DateTime end = start.AddSeconds(3);
-        while (start < end)
-        {
-            Console.WriteLine("Get Ready...");
-            Console.Write("/");
-
-            Thread.Sleep(500);
-
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write(@"\");
-
-            Thread.Sleep(500);
-            Console.Clear();
-
-            start = DateTime.Now;
-        }
-    }
 }
