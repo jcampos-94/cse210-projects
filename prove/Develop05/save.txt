@@ -1,5 +1,5 @@
-76
-Imported Goal 1,First attempt importing something,10,1,True
-Imported Goal 2,Second attempt importing something,5,1,True
-Imported Goal 3,Third attempt importing something,1,2,False
-Imported Goal 4,Fourth attempt importing something,20,3,False,5,3,100
+95
+Write Email,Write an email to PC 103 instructor,10,1,True
+Documents,Organize my files and documents,5,1,True
+Read Scriptures,Read Scriptures for at least 10 minutes,10,2,False
+Get an A,Get an A in each Course,50,3,False,3,1,150

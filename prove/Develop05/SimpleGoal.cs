@@ -39,6 +39,7 @@ public class SimpleGoal : Goal
                     else
                     {
                         Console.WriteLine("\nThat event has already been completed.");
+                        _points = 0;
                         Console.ReadKey();
                     }
                 }
