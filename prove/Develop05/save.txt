@@ -1,0 +1,5 @@
+76
+Imported Goal 1,First attempt importing something,10,1,True
+Imported Goal 2,Second attempt importing something,5,1,True
+Imported Goal 3,Third attempt importing something,1,2,False
+Imported Goal 4,Fourth attempt importing something,20,3,False,5,3,100
