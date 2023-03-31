@@ -2,7 +2,7 @@ public class Reception : Event
 {
     private string _rsvp;
     
-    public Reception(string title, string description, string date, string time, Address address, string rsvp)
+    public Reception(string title, string description, DateTime date, string time, Address address, string rsvp)
         : base (title, description, date, time, address)
     {
         SetEventType("Reception");
@@ -11,6 +11,6 @@ public class Reception : Event
 
     public string DisplayReceptionDetails()
     {
-        return $"{GetEventType()} - {GetTitle()}:\n{GetDescription()}\nDate and Time: {GetDate()} at {GetTime()}\nLocation: {GetAddress().FullAddress()}\nRSVP: {_rsvp}";
+        return $"{GetEventType()} - {GetTitle()}:\n{GetDescription()}\nDate and Time: {GetDate().ToString("MMM dd, yyyy")} at {GetTime()}\nLocation: {GetAddress().FullAddress()}\nRSVP: {_rsvp}";
     }
 }
